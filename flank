@@ -1,0 +1,133 @@
+Certainly! Below, I'll provide study material and example code for each topic covered on Day 6 of Web Development with Flask:
+
+### Day 6: Web Development with Flask
+
+#### 1. Introduction to Web Development:
+
+- **Study Material:** 
+  - Flask Documentation: [Flask Quickstart](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
+  - Flask Mega-Tutorial by Miguel Grinberg: [The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+
+#### 2. Setting up a Flask Application:
+
+- **Example Code:** Creating a basic Flask application structure with routes and templates.
+  
+  ```python
+  # app.py
+  from flask import Flask, render_template
+
+  app = Flask(__name__)
+
+  @app.route('/')
+  def index():
+      return 'Hello, Flask!'
+
+  if __name__ == '__main__':
+      app.run(debug=True)
+  ```
+
+#### 3. Creating Routes and Handling Requests:
+
+- **Example Code:** Defining routes for different URL paths and HTTP methods using Flask's `route` decorator.
+  
+  ```python
+  # app.py
+  from flask import Flask, request
+
+  app = Flask(__name__)
+
+  @app.route('/')
+  def index():
+      return 'Hello, Flask!'
+
+  @app.route('/hello')
+  def hello():
+      name = request.args.get('name', 'Guest')
+      return f'Hello, {name}!'
+
+  if __name__ == '__main__':
+      app.run(debug=True)
+  ```
+
+#### 4. Templating with Jinja2:
+
+- **Study Material:** 
+  - Jinja Documentation: [Jinja Documentation](https://jinja.palletsprojects.com/en/3.0.x/)
+
+- **Example Code:** Using templates to generate HTML content dynamically with Flask.
+  
+  ```html
+  <!-- templates/index.html -->
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Flask Template Example</title>
+  </head>
+  <body>
+      <h1>Hello, {{ name }}!</h1>
+  </body>
+  </html>
+  ```
+
+#### 5. Integrating Flask with HTML and CSS:
+
+- **Study Material:** 
+  - Flask Documentation: [Static Files](https://flask.palletsprojects.com/en/2.0.x/tutorial/static/)
+
+- **Example Code:** Integrating Flask with HTML templates to render dynamic content and serve static files.
+  
+  ```html
+  <!-- templates/index.html -->
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Flask Template Example</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+      <h1>Hello, {{ name }}!</h1>
+  </body>
+  </html>
+  ```
+
+#### 6. Building a Simple Web Application:
+
+- **Example Code:** Building a simple web application with Flask, implementing multiple routes, rendering templates, and serving static files.
+
+  ```python
+  # app.py
+  from flask import Flask, render_template, request
+
+  app = Flask(__name__)
+
+  @app.route('/')
+  def index():
+      return render_template('index.html', name='Flask')
+
+  @app.route('/hello')
+  def hello():
+      name = request.args.get('name', 'Guest')
+      return render_template('index.html', name=name)
+
+  if __name__ == '__main__':
+      app.run(debug=True)
+  ```
+
+#### 7. Deploying Flask Applications:
+
+- **Study Material:** 
+  - Flask Documentation: [Deployment Options](https://flask.palletsprojects.com/en/2.0.x/deploying/)
+  - Heroku Documentation: [Getting Started on Heroku with Python](https://devcenter.heroku.com/articles/getting-started-with-python)
+
+#### 8. Best Practices and Further Learning:
+
+- **Study Material:** 
+  - Flask Documentation: [Best Practices](https://flask.palletsprojects.com/en/2.0.x/patterns/#patterns)
+  - Real Python Article: [Flask Best Practices: Patterns for Building Web Apps](https://realpython.com/flask-best-practices/)
+
+### Additional Tips:
+- Encourage students to explore the provided study material and example code to gain a deeper understanding of Flask web development.
+- Provide hands-on exercises and challenges to practice building web applications with Flask.
+- Offer resources such as online tutorials, documentation, and example projects to further enhance their skills in web development with Flask.
+
+With these study materials and example code, students will have a solid foundation in Flask web development and be ready to build their own web applications.
